@@ -117,11 +117,31 @@ section h2 {
 
 /* Map Section */
 .map-container {
-    height: 400px;
+    height: 450px;
     background-color: var(--sand-light);
     border-radius: 10px;
     margin: 0 auto;
     max-width: 1200px;
+    overflow: hidden;
+}
+
+.map-info {
+    max-width: 1200px;
+    margin: 2rem auto 0;
+    padding: 1.5rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.map-info h3 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.map-info p {
+    margin: 0.5rem 0;
+    color: var(--text-dark);
 }
 
 /* Weather Section */
@@ -133,26 +153,85 @@ section h2 {
 .weather-container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 1rem;
 }
 
-/* Events Section */
-.events-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Footer */
-footer {
-    background-color: var(--text-dark);
-    color: var(--white);
-    padding: 2rem;
+.loading, .error {
     text-align: center;
+    padding: 2rem;
+    background: var(--white);
+    border-radius: 10px;
+    margin: 1rem 0;
 }
 
-/* Responsive Design */
+.error {
+    color: #ff4444;
+}
+
+.current-weather {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.current-weather .temp {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-blue);
+    margin: 1rem 0;
+}
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.forecast-card {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.forecast-card:hover {
+    transform: translateY(-2px);
+}
+
+.forecast-card h4 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.forecast-icon {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.forecast-text {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin: 0.5rem 0;
+}
+
+.temp-range {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.humidity {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    opacity: 0.8;
+}
+
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
@@ -171,5 +250,15 @@ footer {
 
     .hero p {
         font-size: 1.2rem;
+    }
+
+    .forecast-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .forecast-grid {
+        grid-template-columns: 1fr;
     }
 }
